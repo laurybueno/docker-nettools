@@ -3,7 +3,7 @@
 # Set user Password
 if [[ ! -z $ROOT_PASSWORD ]]; then
 
-  $(echo 'root:'$ROOT_PASSWORD | chgpasswd)
+  $(echo -e "$ROOT_PASSWORD\n$ROOT_PASSWORD" | passwd  root  2> /dev/null)
 
 fi
 
