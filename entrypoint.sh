@@ -14,11 +14,13 @@ if [[ ! -z $USER_NAME ]] && [[ ! -z  $USER_PASSWORD ]]; then
   if [[ ! -z $USER_FOLDER ]]; then
 
     $(mkdir -p $USER_FOLDER)
-    $(useradd $USER_NAME -p $USER_PASSWORD -d $USER_FOLDER --shell /bin/bash)
+    $(useradd $USER_NAME -d $USER_FOLDER --shell /bin/bash)
+    $(echo -e "$USER_PASSWORD\n$USER_PASSWORD" | passwd $USER_NAME )
 
   else
 
-    $(useradd $USER_NAME -p $USER_PASSWORD -m --shell /bin/bash)
+    $(useradd $USER_NAME -d $USER_FOLDER --shell /bin/bash)
+    $(echo -e "$USER_PASSWORD\n$USER_PASSWORD" | passwd $USER_NAME )
 
   fi
 fi  
