@@ -3,7 +3,7 @@
 # Set user Password
 if [[ ! -z $ROOT_PASSWORD ]]; then
 
-  $(echo -e "$ROOT_PASSWORD\n$ROOT_PASSWORD" | passwd  root  2> /dev/null)
+  $(echo -e "$ROOT_PASSWORD\n$ROOT_PASSWORD" | passwd root )
 
 fi
 
@@ -41,11 +41,13 @@ if [[ ! -z $USER_NAME ]] && [[ ! -z  $USER_PASSWORD ]]; then
   elif [[ ! -z $USER_FOLDER ]]; then
 
     $(mkdir -p $USER_FOLDER)
-    $(useradd $USER_NAME -p $USER_PASSWORD -d $USER_FOLDER --shell /bin/bash)
+    $(useradd $USER_NAME -d $USER_FOLDER --shell /bin/bash)
+    $(echo -e "$USER_PASSWORD\n$USER_PASSWORD" | passwd $USER_NAME )
 
   else
 
-    $(useradd $USER_NAME -p $USER_PASSWORD -m --shell /bin/bash)
+    $(useradd $USER_NAME -d $USER_FOLDER --shell /bin/bash)
+    $(echo -e "$USER_PASSWORD\n$USER_PASSWORD" | passwd $USER_NAME )
 
   fi
 
