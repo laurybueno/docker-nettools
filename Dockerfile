@@ -5,6 +5,10 @@ ENV ROOT_PASSWORD='cweqwcp092qa'
 ENV USER_NAME=''
 ENV USER_PASSWORD='hacklab'
 ENV USER_FOLDER=''
+ENV USER_ID=''
+ENV GROUP_ID=''
+ENV USER_APACHE='False'
+ENV APACHE_PASSWORD=''
  
 RUN apt update && apt install -y \
             openssh-server \
