@@ -24,7 +24,7 @@ if [[ ! -z $USER_NAME ]] && [[ ! -z  $USER_PASSWORD ]]; then
   # check User ID, Group ID and Folder are Set
 
   if [[ ! -z $USER_ID ]] && [[ ! -z  $GROUP_ID ]] && [[ ! -z $USER_FOLDER ]]; then
-
+ echo "user folder line +UID+GID"
     $(mkdir -p $USER_FOLDER)
     $(groupadd $GROUP_ID)
     $(useradd $USER_NAME -p $USER_PASSWORD -u $USER_ID -d $USER_FOLDER --shell /bin/bash)
