@@ -1,7 +1,6 @@
 FROM debian:stretch
 LABEL mantainer "hacklab/ <contato@hacklab.com.br>"
 
-ENV ROOT_PASSWORD='cweqwcp092qa'
 ENV USER_NAME=''
 ENV USER_PASSWORD='hacklab'
 ENV USER_FOLDER=''
